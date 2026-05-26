@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fire Breathing Workshop Resources</title>
+<style>
+  :root {
+    --bg: #080706;
+    --card: #11100f;
+    --card-soft: #170908;
+    --text: #fff4ec;
+    --muted: #f4bda4;
+    --soft-muted: #9b8b81;
+    --ember: #ff5d1d;
+    --ember-2: #c9170c;
+    --gold: #ffbb45;
+    --danger: #ff2b16;
+    --line: rgba(255, 88, 28, 0.50);
+    --soft-line: rgba(255, 104, 34, 0.15);
+    --panel: rgba(255, 48, 18, 0.065);
+    --panel-line: rgba(255, 87, 26, 0.16);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+      radial-gradient(circle at 50% -8%, rgba(255, 183, 62, 0.10), transparent 28rem),
+      radial-gradient(circle at 86% 8%, rgba(255, 45, 18, 0.18), transparent 24rem),
+      linear-gradient(180deg, #0b0908 0%, #050403 100%);
+    padding: 18px 12px 38px;
+  }
+
+  .app-shell {
+    width: min(100%, 460px);
+    margin: 0 auto;
+  }
+
+  .page {
+    display: none;
+    animation: pageIn 180ms ease-out;
+  }
+
+  .page.active { display: block; }
+
+  @keyframes pageIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .phone-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 18% 0%, rgba(255, 183, 62, 0.10), transparent 9rem),
+      radial-gradient(circle at 86% 8%, rgba(255, 45, 18, 0.18), transparent 13rem),
+      linear-gradient(150deg, rgba(255, 40, 18, 0.10), rgba(255, 115, 22, 0.045) 34%, transparent 72%),
+      #090403;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  }
+
+  .phone-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px -2px auto -2px;
+    height: 4.5px;
+    background: linear-gradient(90deg, #ffb23e 0%, #ff651b 13%, #c9170c 30%, #ff3614 48%, #ff8a22 63%, #d8180b 82%, #ffb23e 100%);
+    background-size: 220% 100%;
+    background-repeat: repeat-x;
+    opacity: 0.95;
+    filter: blur(0.2px);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.04) 6%, rgba(0, 0, 0, 0.14) 12%, rgba(0, 0, 0, 0.32) 19%, rgba(0, 0, 0, 0.58) 27%, rgba(0, 0, 0, 0.84) 35%, #000 43%, #000 57%, rgba(0, 0, 0, 0.84) 65%, rgba(0, 0, 0, 0.58) 73%, rgba(0, 0, 0, 0.32) 81%, rgba(0, 0, 0, 0.14) 88%, rgba(0, 0, 0, 0.04) 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.04) 6%, rgba(0, 0, 0, 0.14) 12%, rgba(0, 0, 0, 0.32) 19%, rgba(0, 0, 0, 0.58) 27%, rgba(0, 0, 0, 0.84) 35%, #000 43%, #000 57%, rgba(0, 0, 0, 0.84) 65%, rgba(0, 0, 0, 0.58) 73%, rgba(0, 0, 0, 0.32) 81%, rgba(0, 0, 0, 0.14) 88%, rgba(0, 0, 0, 0.04) 94%, transparent 100%);
+    animation: slowFlameDriftLoop 6.2s linear infinite;
+  }
+
+  @keyframes slowFlameDriftLoop {
+    from { background-position: 0% 50%; }
+    to { background-position: -100% 50%; }
+  }
+
+  .ember-glow {
+    position: absolute;
+    right: -70px;
+    top: -70px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 42, 18, 0.20), rgba(255, 138, 34, 0.08) 34%, transparent 70%);
+    pointer-events: none;
+    animation: emberPulse 4.8s ease-in-out infinite;
+  }
+
+  @keyframes emberPulse {
+    0%, 100% { opacity: 0.45; transform: scale(0.96); }
+    50% { opacity: 0.8; transform: scale(1.04); }
+  }
+
+  .content {
+    position: relative;
+    padding: 26px 22px 24px;
+  }
+
+  .kicker {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 104, 30, 0.36);
+    border-radius: 999px;
+    color: #ffc14e;
+    background: rgba(255, 54, 18, 0.14);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .title-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .title-icon {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+    color: #ffc14e;
+    background: rgba(255, 48, 18, 0.16);
+    border: 1px solid rgba(255, 86, 26, 0.30);
+    overflow: hidden;
+  }
+
+  .title-icon .glyph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    line-height: 1;
+    text-align: center;
+    transform-origin: 50% 50%;
+    transform: translateY(-0.4px);
+  }
+
+  .title-icon .fuel-glyph {
+    transform: translateY(-0.2px);
+  }
+
+  h1, h2, h3, p { margin-top: 0; }
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 34px;
+    line-height: 0.98;
+    letter-spacing: -0.07em;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 31px;
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+  }
+
+  .subtitle {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .hero-note {
+    margin: 18px 0 0;
+    padding: 15px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255, 33, 18, 0.18), rgba(255, 145, 24, 0.07));
+    border: 1px solid rgba(255, 48, 20, 0.40);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.42;
+    font-weight: 700;
+  }
+
+  .resource-list {
+    display: grid;
+    gap: 11px;
+    margin-top: 24px;
+  }
+
+  .resource-category {
+    margin: 11px 0 2px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .resource-link {
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    padding: 15px 14px;
+    border-radius: 18px;
+    text-decoration: none;
+    color: var(--text);
+    background: rgba(255, 48, 18, 0.065);
+    border: 1px solid rgba(255, 87, 26, 0.16);
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  }
+
+  .resource-link:hover,
+  .resource-link:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(255, 48, 18, 0.095);
+    border-color: rgba(255, 104, 30, 0.36);
+    outline: none;
+  }
+
+  .resource-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    color: #ffc14e;
+    background: rgba(255, 48, 18, 0.13);
+    border: 1px solid rgba(255, 86, 26, 0.28);
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .resource-title {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .resource-meta {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .resource-arrow {
+    color: var(--gold);
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  .section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--soft-line);
+  }
+
+  .section h3 {
+    margin: 0 0 12px;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .box-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .box-item {
+    padding: 12px 13px;
+    border-radius: 15px;
+    background: var(--panel);
+    border: 1px solid var(--panel-line);
+  }
+
+  .box-item p,
+  .statement-box p {
+    margin: 0;
+    color: var(--text);
+    font-size: 15.5px;
+    line-height: 1.4;
+  }
+
+  .box-item p + p {
+    margin-top: 7px;
+  }
+
+  .box-item strong { color: #ffd2a4; }
+
+  .box-link {
+    display: block;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15.5px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+
+  .box-link:hover,
+  .box-link:focus-visible {
+    color: var(--gold);
+    outline: none;
+  }
+
+  .mini-label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .medical-details .mini-label,
+  .tell-them-boxes .mini-label {
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  ul.clean-list,
+  ol.clean-list {
+    margin: 0;
+    padding-left: 19px;
+  }
+
+  .clean-list li {
+    margin: 0 0 10px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.38;
+  }
+
+  .clean-list li::marker { color: var(--gold); }
+
+  .symptom-list {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .symptom-list li {
+    margin: 0 0 7px;
+    color: var(--text);
+    font-size: 15.5px;
+    line-height: 1.32;
+  }
+
+  .symptom-list li:last-child { margin-bottom: 0; }
+
+  .symptom-list li::marker { color: var(--gold); }
+
+  .emergency-strip {
+    margin: 22px 0;
+    padding: 16px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255, 33, 18, 0.28), rgba(255, 145, 24, 0.09));
+    border: 1px solid rgba(255, 48, 20, 0.58);
+    box-shadow: 0 0 14px rgba(255, 54, 18, 0.05);
+  }
+
+  .strip-label {
+    margin: 0 0 6px;
+    color: #ffb23e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .strip-text {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.28;
+    font-weight: 800;
+  }
+
+  .statement-box {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 53, 18, 0.09), rgba(255, 118, 26, 0.035));
+    border: 1px solid rgba(255, 79, 24, 0.28);
+  }
+
+  .quote-box p {
+    font-size: 17px;
+    line-height: 1.45;
+    font-weight: 800;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 26px;
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 999px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    background: rgba(255, 106, 26, 0.10);
+    border: 1px solid rgba(255, 106, 26, 0.34);
+  }
+
+  .back-link:hover,
+  .back-link:focus-visible {
+    color: var(--gold);
+    border-color: rgba(255, 187, 69, 0.46);
+    outline: none;
+  }
+
+  .compact-button-stack {
+    display: grid;
+    gap: 9px;
+    margin-top: 20px;
+  }
+
+  .compact-button-stack .back-link {
+    margin-top: 0;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--soft-line);
+    color: #81766f;
+    font-size: 11px;
+  }
+
+  .small-note {
+    margin: 12px 0 0;
+    color: var(--soft-muted);
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+
+  .form-field {
+    min-height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 106, 26, 0.22);
+    background: rgba(255, 255, 255, 0.035);
+    margin-top: 7px;
+  }
+
+  .print-certificate {
+    min-height: 520px;
+    display: grid;
+    align-content: center;
+    text-align: center;
+    border: 1px solid rgba(255, 187, 69, 0.32);
+    border-radius: 22px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 187, 69, 0.12), transparent 16rem),
+      rgba(255, 255, 255, 0.025);
+    padding: 28px 20px;
+  }
+
+  .certificate-name {
+    margin: 22px 0;
+    padding: 14px 0 10px;
+    border-bottom: 1px solid rgba(255, 187, 69, 0.38);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+
+  .sig-row {
+    display: grid;
+    gap: 18px;
+    margin-top: 34px;
+  }
+
+  .sig-line {
+    padding-top: 9px;
+    border-top: 1px solid rgba(255, 187, 69, 0.35);
+    color: var(--muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 420px) {
+    body { padding: 12px 10px 28px; }
+    .content { padding: 24px 18px 22px; }
+    h1 { font-size: 31px; }
+    h2 { font-size: 29px; }
+    .title-icon { width: 40px; height: 40px; border-radius: 14px; }
+  }
+
+  @media print {
+    body { background: #090403; padding: 0; }
+    .page { display: block !important; page-break-after: always; }
+    .back-link, .resource-list, .hero-note, .footer { display: none !important; }
+    .phone-card { min-height: 100vh; border-radius: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="app-shell">
+
+  <section id="hub" class="page active">
+    <article class="phone-card">
+      <div class="ember-glow"></div>
+      <div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <h1>Workshop Resources</h1>
+        <p class="subtitle">Participant handouts, checklists, aftercare, and reference pages. Open the page you need, then use Back to Resources.</p>
+        <div class="hero-note">One QR code can point here Resources are grouped by when you need them</div>
+
+        <nav class="resource-list" aria-label="Workshop resources">
+          <div class="resource-category">Emergency &amp; Aftercare</div>
+          <a class="resource-link" href="#health"><span class="resource-icon">✚</span><span><span class="resource-title">Health Monitoring</span><span class="resource-meta">Warning signs, what to do, and delayed symptoms</span></span><span class="resource-arrow">›</span></a>
+          <a class="resource-link" href="#medical"><span class="resource-icon">999</span><span><span class="resource-title">A&amp;E Statement</span><span class="resource-meta">Exact wording and fuel details for medical staff</span></span><span class="resource-arrow">›</span></a>
+          <a class="resource-link" href="#emergency"><span class="resource-icon">!</span><span><span class="resource-title">Emergency Actions</span><span class="resource-meta">Burns, clothing fire, Paraffin Fire, and spill response</span></span><span class="resource-arrow">›</span></a>
+          <a class="resource-link" href="#cleaning"><span class="resource-icon">↻</span><span><span class="resource-title">Cleaning Routine</span><span class="resource-meta">Mouth, face, hands, clothing, and kit residue</span></span><span class="resource-arrow">›</span></a>
+
+          <div class="resource-category">Practice</div>
+          <a class="resource-link" href="#practice-later"><span class="resource-icon">✓</span><span><span class="resource-title">Before Practice Checklist</span><span class="resource-meta">Weather, wind, boundary, kit, water practice, and final checks</span></span><span class="resource-arrow">›</span></a>
+          <a class="resource-link" href="#technique-sequence"><span class="resource-icon">1</span><span><span class="resource-title">Technique &amp; Sequence</span><span class="resource-meta">Mini O, posture, breath, and step-by-step sequence</span></span><span class="resource-arrow">›</span></a>
+
+          <div class="resource-category">Fuel &amp; Kit</div>
+          <a class="resource-link" href="#fuel-equipment"><span class="resource-icon">◈</span><span><span class="resource-title">Fuel &amp; Equipment</span><span class="resource-meta">Workshop kit list and product links</span></span><span class="resource-arrow">›</span></a>
+
+          <div class="resource-category">After Workshop</div>
+          <a class="resource-link" href="#feedback"><span class="resource-icon">?</span><span><span class="resource-title">Feedback Form</span><span class="resource-meta">Workshop feedback and testimonial permission draft</span></span><span class="resource-arrow">›</span></a>
+          <a class="resource-link" href="#photos-contact"><span class="resource-icon">@</span><span><span class="resource-title">Photos &amp; Contact</span><span class="resource-meta">Photo link, opt-out correction route, Julian contact</span></span><span class="resource-arrow">›</span></a>
+          <a class="resource-link" href="#certificate"><span class="resource-icon">✓</span><span><span class="resource-title">Certificate</span><span class="resource-meta">Completion certificate template</span></span><span class="resource-arrow">›</span></a>
+        </nav>
+
+        <div class="footer"><span>Resource Hub</span><span>v1.1</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section id="health" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph">✚</span></div><div><h2>Health Monitoring</h2><p class="subtitle">Monitor yourself for 72 hours after Fire Breathing. Symptoms can appear or worsen hours later.</p></div></div>
+        <div class="emergency-strip"><p class="strip-label">Urgent Rule</p><p class="strip-text">If symptoms are severe, call 999 or go to A&amp;E</p></div>
+        <div class="section"><h3>Warning Signs</h3><div class="box-list">
+          <div class="box-item"><p>Fever or high temperature</p></div>
+          <div class="box-item"><p>Cough or wheeze</p></div>
+          <div class="box-item"><p>Shortness of breath</p></div>
+          <div class="box-item"><p>Chest or throat heat</p></div>
+          <div class="box-item"><p>Coughing blood</p></div>
+        </div></div>
+        <div class="section"><h3>What To Do</h3><div class="box-list">
+          <div class="box-item"><p><strong>Mild concern:</strong> Phone NHS 24 on 111</p></div>
+          <div class="box-item"><p><strong>Severe concern:</strong> Phone 999 or go to A&amp;E</p></div>
+        </div></div>
+        <div class="compact-button-stack"><a class="back-link" href="#medical">A&amp;E Statement</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Health Monitoring</span><span>v1.1</span></div>
+      </div></article>
+  </section>
+
+  <section id="medical" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph">999</span></div><div><h2>A&amp;E Statement</h2></div></div>
+        <div class="statement-box quote-box"><p>“I have been Fire Breathing with Bird Brand Clear Lamp Oil / Ultra-Pure Paraffin<br>I may have inhaled or aspirated fuel<br>Please assess for Chemical Pneumonitis / Lipoid Pneumonia”</p></div>
+        <div class="section medical-details"><h3>Fuel Details</h3><div class="box-list">
+          <div class="box-item"><span class="mini-label">Product used</span><p>Bird Brand Clear Lamp Oil / Ultra-Pure Paraffin</p></div>
+          <div class="box-item"><span class="mini-label">Chemical identity</span><p>Hydrocarbons, C10-C13, n-alkanes, &lt;2% aromatics</p></div>
+          <div class="box-item"><span class="mini-label">Official SDS hazard</span><p>H304 — May be fatal if swallowed and enters airways</p></div>
+        </div></div>
+        <div class="section tell-them-boxes"><h3>Tell Them</h3><div class="box-list">
+          <div class="box-item"><span class="mini-label">Time</span><p>What time did it happen</p></div>
+          <div class="box-item"><span class="mini-label">How it happened</span><p>Coughed, choked, swallowed, inhaled, or felt fuel go the wrong way</p></div>
+          <div class="box-item"><span class="mini-label">Symptoms</span><ul class="symptom-list"><li>Fever or high temperature</li><li>Cough or wheeze</li><li>Shortness of breath</li><li>Chest or throat heat</li><li>Coughing blood</li></ul></div>
+        </div></div>
+        <a class="back-link" href="#hub">Back to Resources</a><div class="footer"><span>A&amp;E Statement</span><span>v1.1</span></div>
+      </div></article>
+  </section>
+
+  <section id="emergency" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph">!</span></div><div><h2>Emergency Actions</h2></div></div>
+        <div class="section"><h3>Clothing On Fire</h3><div class="box-list"><div class="box-item"><ul class="symptom-list"><li>Stop, drop and roll</li><li>Remove any clothing that is burned or contaminated with Ultra-Pure Paraffin</li></ul></div></div></div>
+        <div class="section"><h3>Burns</h3><div class="box-list"><div class="box-item"><p>Cool the burn under running water for 20 minutes</p></div><div class="box-item"><p>Do not use ice or other substances — they can trap heat or damage the burn</p></div><div class="box-item"><p>Remove nearby jewellery and clothing, but do not remove anything stuck to the burn</p></div><div class="box-item"><p>For burns involving the face or airway, or for large, deep, or worsening burns, phone 999 or go straight to A&amp;E</p></div></div></div>
+        <div class="section"><h3>Paraffin Fire</h3><div class="box-list"><div class="box-item"><ul class="symptom-list"><li>Use your Fire Blanket immediately</li></ul></div></div></div>
+        <div class="section"><h3>Spill</h3><div class="box-list"><div class="box-item"><ul class="symptom-list"><li>Remove ignition sources if safe</li><li>Keep people clear</li><li>Absorb Ultra-Pure Paraffin with sand</li><li>Collect contaminated sand for disposal</li></ul></div></div></div>
+        <div class="compact-button-stack"><a class="back-link" href="#medical">A&amp;E Statement</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Emergency Actions</span><span>v1.1</span></div>
+      </div></article>
+  </section>
+
+  <section id="cleaning" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph">↻</span></div><div><h2>Cleaning Routine</h2><p class="subtitle">This must be done after every Fire-Breathing session</p></div></div>
+        <div class="section"><h3>Mouth Routine</h3><ol class="clean-list"><li>Three thorough rinses with water</li><li>Alcohol-free mouthwash rinse</li><li>Brush teeth for 2 minutes</li><li>Optional water flosser</li></ol></div>
+        <div class="section"><h3>Face, Hands &amp; General Cleaning</h3><ol class="clean-list"><li>Wash your face and hands with soap and warm water</li><li>Shower to remove any Ultra-Pure Paraffin residue</li><li>Put all clothing used in the wash</li><li>Do not tumble dry clothing used while Fire-Breathing</li></ol></div>
+        <div class="section"><h3>Before You Leave</h3><div class="box-list"><div class="box-item"><p>Remember to monitor symptoms for 72 hours</p></div></div></div>
+        <div class="compact-button-stack"><a class="back-link" href="#health">Health Monitoring</a><a class="back-link" href="#medical">A&amp;E Statement</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Cleaning Routine</span><span>v1.1</span></div>
+      </div></article>
+  </section>
+
+  <section id="practice-later" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph">✓</span></div><div><h2>Before Practice Checklist</h2><p class="subtitle">Use this before Fire Breathing away from the workshop</p></div></div>
+        <div class="section"><h3>Before Leaving</h3><div class="box-list"><div class="box-item"><p>Check Met Office for the exact location</p></div><div class="box-item"><p>Pack Fire Blanket, Sand / Spill Kit, Water, Phone, Dab Rag, Torch, and Ultra-Pure Paraffin</p></div></div></div>
+        <div class="section"><h3>On Arrival</h3><div class="box-list"><div class="box-item"><p>Check the weather again at the current location</p></div><div class="box-item"><p>Watch wind clues at head height: trees, flags, smoke, clothing, and your Torch</p></div><div class="box-item"><p>If wind is gusty or variable, do not Fire Breathe under any circumstances</p></div></div></div>
+        <div class="section"><h3>Boundary Check</h3><div class="box-list"><div class="box-item"><p>Ground is clear of holes or tripping hazards</p></div><div class="box-item"><p>Boundary is clear of people, clothing, items, and obstructions</p></div><div class="box-item"><p>No nearby combustibles, overhead hazards, electrical cables, or anything your Fire Breathing could reach</p></div><div class="box-item"><p>Fire Blanket, Sand / Spill Kit, and Water are within reach</p></div></div></div>
+        <div class="section"><h3>Before Fire Breathing</h3><div class="box-list"><div class="box-item"><p>Run the Fire Breathing Sequence with water first</p></div><div class="box-item"><p>Water mist is clean, controlled, and travelling with the wind</p></div><div class="box-item"><p>Check Torch orientation to confirm the wind is behind you before Ultra-Pure Paraffin goes in your mouth</p></div></div></div>
+        <div class="compact-button-stack"><a class="back-link" href="#technique-sequence">Technique &amp; Sequence</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Before Practice Checklist</span><span>v1.1</span></div>
+      </div></article>
+  </section>
+
+  <section id="technique-sequence" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph">1</span></div><div><h2>Technique &amp; Sequence</h2><p class="subtitle">Use the same technique for water practice and Fire Breathing.</p></div></div>
+        <div class="section"><h3>Fire Breathing Sequence</h3><ol class="clean-list"><li>Light torch (if needed)</li><li>Wet face with Dab Rag</li><li>Check boundary for people and obstructions</li><li>Check torch to orientate to wind behind you</li><li>Big breath in, and hold</li><li>Ultra-Pure Paraffin in mouth</li><li>Check torch again to orient it to wind behind you</li><li>Fire Breathe</li><li>Clear mouth / spit and breathe normally</li></ol></div>
+        <div class="section"><h3>Technique Check</h3><div class="box-list"><div class="box-item"><p>Mini O, firm corners, firm cheeks</p></div><div class="box-item"><p>Tongue down and clear</p></div><div class="box-item"><p>Head and neck neutral, abs tight</p></div><div class="box-item"><p>Steady consistent breath</p></div></div></div>
+        <div class="section"><h3>Common Fixes</h3><div class="box-list"><div class="box-item"><p><strong>If Mist Comes Out Like A Stream:</strong><br>Use less water, make the mouth opening smaller, and try again</p></div><div class="box-item"><p><strong>If Mist Looks / Feels Weak:</strong><br>Commit to more breath, keep it steady, and do not hesitate</p></div><div class="box-item"><p><strong>If There Are Drips At The End:</strong><br>Cut off the mist while your breath is still strong Do not push to the last bit of breath</p></div><div class="box-item"><p><strong>If Your Mouth Shape Feels Wrong:</strong><br>Reset: Mini O, firm corners, firm cheeks, tongue down and clear</p></div><div class="box-item"><p><strong>If You Need To Breathe In Quickly:</strong><br>Too much water / Ultra-Pure Paraffin was used Try again with less and make sure you can clear your mouth before breathing</p></div></div></div>
+        <div class="compact-button-stack"><a class="back-link" href="#practice-later">Before Practice Checklist</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Technique &amp; Sequence</span><span>v1.1</span></div>
+      </div></article>
+  </section>
+
+  <section id="fuel-equipment" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph fuel-glyph">◈</span></div><div><h2>Fuel &amp; Equipment</h2></div></div>
+        <div class="section"><h3>Equipment List</h3><div class="box-list">
+          <div class="box-item"><a class="box-link" href="https://www.amazon.co.uk/Bird-Brand-Indoor-Outdoor-Smokeless/dp/B08NFCZ5QR" target="_blank" rel="noopener noreferrer">Bird Brand Clear Lamp Oil / Ultra-Pure Paraffin</a></div>
+          <div class="box-item"><a class="box-link" href="https://www.oddballs.co.uk/products/juggle-dream-fire-spitting-stick" target="_blank" rel="noopener noreferrer">Fire-Breathing Torch</a></div>
+          <div class="box-item"><a class="box-link" href="https://www.amazon.co.uk/Trangia-Fuel-Bottle-Safety-Valve/dp/B000Q6BQKG" target="_blank" rel="noopener noreferrer">Trangia Fuel Bottle</a></div>
+          <div class="box-item"><p>Dab Rags</p><p>Any white face cloths that are 100% cotton</p></div>
+          <div class="box-item"><a class="box-link" href="https://www.aliexpress.com/item/1005010769917336.html?spm=a2g0o.order_list.order_list_main.23.795e1802lAm5Sp" target="_blank" rel="noopener noreferrer">Fire Blanket 1m x 1m (CE Standard: 1869-2019)</a></div>
+          <div class="box-item"><p>Fire Blanket 2m x 2m</p></div>
+          <div class="box-item"><a class="box-link" href="https://www.diy.com/departments/site-cotton-red-specialist-general-handling-gloves-large/3663602671602_BQ.prd" target="_blank" rel="noopener noreferrer">B&amp;Q General Handling Gloves</a></div>
+          <div class="box-item"><a class="box-link" href="https://www.tesco.com/shop/en-GB/products/300556407" target="_blank" rel="noopener noreferrer">Tesco Essentials Alcohol Free Mouthwash</a></div>
+          <div class="box-item"><p>Sand / Spill Kit</p></div>
+          <div class="box-item"><p>Water Bottles</p></div>
+          <div class="box-item"><p>Toothbrushes</p></div>
+          <div class="box-item"><p>Carabiners</p></div>
+          <div class="box-item"><p>Carabiner Hooks</p></div>
+          <div class="box-item"><p>Speaker</p></div>
+          <div class="box-item"><p>Background Music Playlist</p></div>
+        </div></div>
+        <a class="back-link" href="#hub">Back to Resources</a><div class="footer"><span>Fuel &amp; Equipment</span><span>v1.1</span></div>
+      </div></article>
+  </section>
+
+  <section id="feedback" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph">?</span></div><div><h2>Feedback Form</h2><p class="subtitle">Draft structure for the QR feedback form</p></div></div>
+        <div class="section"><h3>Quick Ratings</h3><div class="box-list"><div class="box-item"><span class="mini-label">Confidence Before</span><div class="form-field"></div></div><div class="box-item"><span class="mini-label">Confidence After</span><div class="form-field"></div></div><div class="box-item"><span class="mini-label">Safety Clarity</span><div class="form-field"></div></div><div class="box-item"><span class="mini-label">Pace</span><div class="form-field"></div></div></div></div>
+        <div class="section"><h3>Questions</h3><div class="box-list"><div class="box-item"><p>What was the best part</p><div class="form-field"></div></div><div class="box-item"><p>What should be improved</p><div class="form-field"></div></div><div class="box-item"><p>May Julian use your comment as a testimonial</p><div class="form-field"></div></div></div></div>
+        <a class="back-link" href="#hub">Back to Resources</a><div class="footer"><span>Feedback Form</span><span>Draft</span></div>
+      </div></article>
+  </section>
+
+  <section id="photos-contact" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="title-row"><div class="title-icon"><span class="glyph">@</span></div><div><h2>Photos &amp; Contact</h2><p class="subtitle">Use this page for photo access, follow-up questions, and non-emergency contact</p></div></div>
+        <div class="section"><h3>Photo Link</h3><div class="box-list"><div class="box-item"><p>[Add private gallery link here]</p></div></div></div>
+        <div class="section"><h3>Photo Reminder</h3><div class="box-list"><div class="box-item"><p>Photos are shared only through the agreed workshop delivery route</p></div><div class="box-item"><p>If you opted out of photos, contact Julian if anything appears by mistake</p></div></div></div>
+        <div class="section"><h3>Julian</h3><div class="box-list"><div class="box-item"><span class="mini-label">Email</span><p>JulianJinn@outlook.com</p></div><div class="box-item"><span class="mini-label">Location</span><p>Edinburgh / Musselburgh, Scotland</p></div></div></div>
+        <div class="section"><h3>Links To Add</h3><div class="box-list"><div class="box-item"><p>Booking link</p></div><div class="box-item"><p>Social link</p></div></div></div>
+        <div class="emergency-strip"><p class="strip-label">Emergency</p><p class="strip-text">For urgent medical symptoms, use 999 / A&amp;E Do not wait for a reply from Julian</p></div>
+        <a class="back-link" href="#hub">Back to Resources</a><div class="footer"><span>Photos &amp; Contact</span><span>v1.1</span></div>
+      </div></article>
+  </section>
+
+  <section id="certificate" class="page">
+    <article class="phone-card">
+      <div class="ember-glow"></div><div class="content">
+        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <div class="print-certificate">
+          <p class="mini-label">Certificate Of Completion</p>
+          <h1>Fire Breathing Workshop</h1>
+          <p class="subtitle">This confirms that</p>
+          <div class="certificate-name">[Participant Name]</div>
+          <p class="subtitle">Completed Julian’s beginner Fire Breathing workshop and practised the safety controls taught during the session</p>
+          <div class="sig-row"><div class="sig-line">Julian — Instructor</div><div class="sig-line">Date</div></div>
+          <p class="small-note">This is a workshop completion certificate, not a professional performance qualification</p>
+        </div>
+        <a class="back-link" href="#hub">Back to Resources</a><div class="footer"><span>Certificate</span><span>Template</span></div>
+      </div></article>
+  </section>
+
+</div>
+<script>
+  const pages = Array.from(document.querySelectorAll('.page'));
+
+  function showPageFromHash() {
+    const requested = (window.location.hash || '#hub').replace('#', '');
+    const target = document.getElementById(requested) ? requested : 'hub';
+    pages.forEach(page => page.classList.toggle('active', page.id === target));
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  window.addEventListener('hashchange', showPageFromHash);
+  showPageFromHash();
+</script>
+</body>
+</html>
