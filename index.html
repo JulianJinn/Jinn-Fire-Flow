@@ -128,6 +128,43 @@
     cursor: pointer;
   }
 
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .brand-logo {
+    display: block;
+    width: min(100%, 260px);
+    height: auto;
+    filter: drop-shadow(0 8px 18px rgba(255, 75, 24, 0.12));
+  }
+
+  #hub .brand-logo {
+    width: min(100%, 300px);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   .title-row {
     display: flex;
     gap: 14px;
@@ -557,7 +594,7 @@
     <article class="phone-card">
       <div class="ember-glow"></div>
       <div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <h1>Workshop Resources</h1>
 
         <nav class="resource-list" aria-label="Workshop resources">
@@ -569,7 +606,7 @@
 
           <div class="resource-category">Practice</div>
           <a class="resource-link" href="#practice-later"><span class="resource-icon"><span class="resource-glyph resource-glyph-check">☑</span></span><span><span class="resource-title">Before Practice Checklist</span><span class="resource-meta">Weather, wind, boundary, kit, water practice, and final checks</span></span><span class="resource-arrow">›</span></a>
-          <a class="resource-link" href="#technique-sequence"><span class="resource-icon"><span class="resource-glyph resource-glyph-circle">○</span></span><span><span class="resource-title">Technique &amp; Sequence</span><span class="resource-meta">Mini O, posture, breath, and step-by-step sequence</span></span><span class="resource-arrow">›</span></a>
+          <a class="resource-link" href="#technique-sequence"><span class="resource-icon"><span class="resource-glyph resource-glyph-circle">○</span></span><span><span class="resource-title">Techniques</span><span class="resource-meta">Mini O, posture, breath, sequence, and common fixes</span></span><span class="resource-arrow">›</span></a>
 
           <div class="resource-category">Fuel &amp; Kit</div>
           <a class="resource-link" href="#fuel-equipment"><span class="resource-icon"><span class="resource-glyph resource-glyph-gear">⚙</span></span><span><span class="resource-title">Equipment (TBC)</span><span class="resource-meta">Workshop kit list and product links</span></span><span class="resource-arrow">›</span></a>
@@ -586,9 +623,9 @@
   <section id="health" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <div class="title-row"><div class="title-icon"><span class="glyph">✚</span></div><div><h2>Health Monitoring</h2><p class="subtitle">Monitor yourself for 72 hours after Fire Breathing. Symptoms can appear or worsen hours later.</p></div></div>
-        <div class="emergency-strip"><p class="strip-label">Urgent Rule</p><p class="strip-text">If symptoms are severe, call 999 or go to A&amp;E</p></div>
+        <div class="emergency-strip"><p class="strip-label">Urgent Rule</p><p class="strip-text">If symptoms are severe, call 999 or go to A&amp;E immediately</p></div>
         <div class="section"><h3>Warning Signs</h3><div class="box-list">
           <div class="box-item"><p>Fever or high temperature</p></div>
           <div class="box-item"><p>Cough or wheeze</p></div>
@@ -607,7 +644,7 @@
   <section id="medical" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <div class="title-row"><div class="title-icon"><span class="glyph">999</span></div><div><h2>A&amp;E Statement</h2></div></div>
         <div class="statement-box quote-box"><p>“I have been Fire Breathing with Bird Brand Clear Lamp Oil / Ultra-Pure Paraffin<br>I may have inhaled or aspirated fuel<br>Please assess for Chemical Pneumonitis / Lipoid Pneumonia”</p></div>
         <div class="section medical-details"><h3>Fuel Details</h3><div class="box-list">
@@ -627,12 +664,11 @@
   <section id="emergency" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <div class="title-row"><div class="title-icon"><span class="glyph">!</span></div><div><h2>Emergency Actions</h2></div></div>
-        <div class="section"><h3>Clothing On Fire</h3><div class="box-list"><div class="box-item"><ul class="symptom-list"><li>Stop, drop and roll</li><li>Remove any clothing that is burned or contaminated with Ultra-Pure Paraffin</li></ul></div></div></div>
         <div class="section"><h3>Burns</h3><div class="box-list"><div class="box-item"><p>Cool the burn under running water for 20 minutes</p></div><div class="box-item"><p>Do not use ice or other substances — they can trap heat or damage the burn</p></div><div class="box-item"><p>Remove nearby jewellery and clothing, but do not remove anything stuck to the burn</p></div><div class="box-item"><p>For burns involving the face or airway, or for large, deep, or worsening burns, phone 999 or go straight to A&amp;E</p></div></div></div>
         <div class="section"><h3>Paraffin Fire</h3><div class="box-list"><div class="box-item"><ul class="symptom-list"><li>Use your Fire Blanket immediately</li></ul></div></div></div>
-        <div class="section"><h3>Spill</h3><div class="box-list"><div class="box-item"><ul class="symptom-list"><li>Remove ignition sources if safe</li><li>Keep people clear</li><li>Absorb Ultra-Pure Paraffin with sand</li><li>Collect contaminated sand for disposal</li></ul></div></div></div>
+        <div class="section"><h3>Paraffin Spill</h3><div class="box-list"><div class="box-item"><ul class="symptom-list"><li>Remove ignition sources if safe</li><li>Keep people clear</li><li>Absorb Ultra-Pure Paraffin with sand</li><li>Collect contaminated sand for disposal</li></ul></div></div></div>
         <div class="compact-button-stack"><a class="back-link" href="#medical">A&amp;E Statement</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Emergency Actions</span><span>v1.1</span></div>
       </div></article>
   </section>
@@ -640,9 +676,9 @@
   <section id="cleaning" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <div class="title-row"><div class="title-icon"><span class="glyph">↻</span></div><div><h2>Cleaning Routine</h2><p class="subtitle">This must be done after every Fire-Breathing session</p></div></div>
-        <div class="section"><h3>Mouth Routine</h3><ol class="clean-list"><li>Three thorough rinses with water</li><li>Alcohol-free mouthwash rinse</li><li>Brush teeth for 2 minutes</li><li>Optional water flosser</li></ol></div>
+        <div class="section"><h3>Mouth Routine</h3><ol class="clean-list"><li>Three thorough rinses with water</li><li>Alcohol-free mouthwash rinse</li><li>Brush teeth for 2 minutes</li><li>Water flosser (optional)</li></ol></div>
         <div class="section"><h3>Face, Hands &amp; General Cleaning</h3><ol class="clean-list"><li>Wash your face and hands with soap and warm water</li><li>Shower to remove any Ultra-Pure Paraffin residue</li><li>Put all clothing used in the wash</li><li>Do not tumble dry clothing used while Fire-Breathing</li></ol></div>
         <div class="section"><h3>Before You Leave</h3><div class="box-list"><div class="box-item"><p>Remember to monitor symptoms for 72 hours</p></div></div></div>
         <div class="compact-button-stack"><a class="back-link" href="#health">Health Monitoring</a><a class="back-link" href="#medical">A&amp;E Statement</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Cleaning Routine</span><span>v1.1</span></div>
@@ -652,33 +688,33 @@
   <section id="practice-later" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <div class="title-row"><div class="title-icon"><span class="glyph practice-glyph">☑</span></div><div><h2>Before Practice Checklist</h2><p class="subtitle">Use this before Fire Breathing away from the workshop</p></div></div>
         <div class="section"><h3>Before Leaving</h3><div class="box-list"><div class="box-item"><p>Check Met Office for the exact location</p></div><div class="box-item"><p>Pack Fire Blanket, Sand Spill Kit, Water, Phone, Dab Rag, Torch, and Ultra-Pure Paraffin</p></div></div></div>
         <div class="section"><h3>On Arrival</h3><div class="box-list"><div class="box-item"><p>Check the weather again at the current location</p></div><div class="box-item"><p>Watch wind clues at head height: trees, flags, smoke, clothing, and your Torch</p></div><div class="box-item"><p>If wind is gusty or variable, do not Fire Breathe under any circumstances</p></div></div></div>
         <div class="section"><h3>Boundary Check</h3><div class="box-list"><div class="box-item"><p>Ground is clear of holes or tripping hazards</p></div><div class="box-item"><p>Boundary is clear of people, clothing, items, and obstructions</p></div><div class="box-item"><p>No nearby combustibles, overhead hazards, electrical cables, or anything your Fire Breathing could reach</p></div><div class="box-item"><p>Fire Blanket, Sand Spill Kit, and Water are within reach</p></div></div></div>
         <div class="section"><h3>Before Fire Breathing</h3><div class="box-list"><div class="box-item"><p>Run the Fire Breathing Sequence with water first</p></div><div class="box-item"><p>Water mist is clean, controlled, and travelling with the wind</p></div><div class="box-item"><p>Check Torch orientation to confirm the wind is behind you before Ultra-Pure Paraffin goes in your mouth</p></div></div></div>
-        <div class="compact-button-stack"><a class="back-link" href="#technique-sequence">Technique &amp; Sequence</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Before Practice Checklist</span><span>v1.1</span></div>
+        <div class="compact-button-stack"><a class="back-link" href="#technique-sequence">Techniques</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Before Practice Checklist</span><span>v1.1</span></div>
       </div></article>
   </section>
 
   <section id="technique-sequence" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
-        <div class="title-row"><div class="title-icon"><span class="glyph technique-glyph">○</span></div><div><h2>Technique &amp; Sequence</h2><p class="subtitle">Use the same technique for water practice and Fire Breathing.</p></div></div>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
+        <div class="title-row"><div class="title-icon"><span class="glyph technique-glyph">○</span></div><div><h2>Techniques</h2><p class="subtitle">Use the same technique for water practice and Fire Breathing.</p></div></div>
         <div class="section"><h3>Fire Breathing Sequence</h3><ol class="clean-list"><li>Light torch (if needed)</li><li>Wet face with Dab Rag</li><li>Check boundary for people and obstructions</li><li>Check torch to orientate to wind behind you</li><li>Big breath in, and hold</li><li>Ultra-Pure Paraffin in mouth</li><li>Check torch again to orient it to wind behind you</li><li>Fire Breathe</li><li>Clear mouth / spit and breathe normally</li></ol></div>
         <div class="section"><h3>Technique Check</h3><div class="box-list"><div class="box-item"><p>Mini O, firm corners, firm cheeks</p></div><div class="box-item"><p>Tongue down and clear</p></div><div class="box-item"><p>Head and neck neutral, abs tight</p></div><div class="box-item"><p>Steady consistent breath</p></div></div></div>
         <div class="section"><h3>Common Fixes</h3><div class="box-list"><div class="box-item"><p><strong>If Mist Comes Out Like A Stream:</strong><br>Use less water, make the mouth opening smaller, and try again</p></div><div class="box-item"><p><strong>If Mist Looks / Feels Weak:</strong><br>Commit to more breath, keep it steady, and do not hesitate</p></div><div class="box-item"><p><strong>If There Are Drips At The End:</strong><br>Cut off the mist while your breath is still strong Do not push to the last bit of breath</p></div><div class="box-item"><p><strong>If Your Mouth Shape Feels Wrong:</strong><br>Reset: Mini O, firm corners, firm cheeks, tongue down and clear</p></div><div class="box-item"><p><strong>If You Need To Breathe In Quickly:</strong><br>Too much water / Ultra-Pure Paraffin was used Try again with less and make sure you can clear your mouth before breathing</p></div></div></div>
-        <div class="compact-button-stack"><a class="back-link" href="#practice-later">Before Practice Checklist</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Technique &amp; Sequence</span><span>v1.1</span></div>
+        <div class="compact-button-stack"><a class="back-link" href="#practice-later">Before Practice Checklist</a><a class="back-link" href="#hub">Back to Resources</a></div><div class="footer"><span>Techniques</span><span>v1.1</span></div>
       </div></article>
   </section>
 
   <section id="fuel-equipment" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
-        <div class="title-row"><div class="title-icon"><span class="glyph equipment-glyph">⚙</span></div><div><h2>Equipment (TBC)</h2></div></div>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
+        <div class="title-row"><div class="title-icon"><span class="glyph equipment-glyph">⚙</span></div><div><h2>Equipment (TBC)</h2><p class="subtitle">All boxes are links to products</p></div></div>
         <div class="section"><h3>Equipment List</h3><div class="box-list">
           <div class="box-item"><a class="box-link" href="https://www.amazon.co.uk/Bird-Brand-Indoor-Outdoor-Smokeless/dp/B08NFCZ5QR" target="_blank" rel="noopener noreferrer">Bird Brand Clear Lamp Oil / Ultra-Pure Paraffin</a></div>
           <div class="box-item"><a class="box-link" href="https://www.oddballs.co.uk/products/juggle-dream-fire-spitting-stick" target="_blank" rel="noopener noreferrer">Fire-Breathing Torch</a></div>
@@ -690,8 +726,8 @@
           <div class="box-item"><a class="box-link" href="https://www.tesco.com/shop/en-GB/products/300556407" target="_blank" rel="noopener noreferrer">Tesco Essentials Alcohol Free Mouthwash</a></div>
           <div class="box-item"><p>Sand Spill Kit</p></div>
           <div class="box-item"><p>Toothbrushes</p></div>
-          <div class="box-item"><p>Carabiners</p></div>
-          <div class="box-item"><p>Carabiner Hooks</p></div>
+          <div class="box-item"><a class="box-link" href="https://www.aliexpress.com/item/1005007075361988.html?spm=a2g0o.order_list.order_list_main.5.4f721802MNkcP0" target="_blank" rel="noopener noreferrer">Carabiners 2M</a></div>
+          <div class="box-item"><a class="box-link" href="https://www.aliexpress.com/item/1005012298854035.html?spm=a2g0o.order_list.order_list_main.11.4f721802MNkcP0" target="_blank" rel="noopener noreferrer">Carabiner Hooks</a></div>
         </div></div>
         <a class="back-link" href="#hub">Back to Resources</a><div class="footer"><span>Equipment (TBC)</span><span>v1.1</span></div>
       </div></article>
@@ -700,7 +736,7 @@
   <section id="feedback" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <div class="title-row"><div class="title-icon"><span class="glyph">?</span></div><div><h2>Feedback Form (TBC)</h2><p class="subtitle">Draft structure for the QR feedback form</p></div></div>
         <div class="section"><h3>Quick Ratings</h3><div class="box-list"><div class="box-item"><span class="mini-label">Confidence Before</span><div class="form-field"></div></div><div class="box-item"><span class="mini-label">Confidence After</span><div class="form-field"></div></div><div class="box-item"><span class="mini-label">Safety Clarity</span><div class="form-field"></div></div><div class="box-item"><span class="mini-label">Pace</span><div class="form-field"></div></div></div></div>
         <div class="section"><h3>Questions</h3><div class="box-list"><div class="box-item"><p>What was the best part</p><div class="form-field"></div></div><div class="box-item"><p>What should be improved</p><div class="form-field"></div></div><div class="box-item"><p>May Julian use your comment as a testimonial</p><div class="form-field"></div></div></div></div>
@@ -711,7 +747,7 @@
   <section id="photos-contact" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <div class="title-row"><div class="title-icon"><span class="glyph">@</span></div><div><h2>Photos &amp; Contact (TBC)</h2><p class="subtitle">Use this page for photo access, follow-up questions, and non-emergency contact</p></div></div>
         <div class="section"><h3>Photo Link</h3><div class="box-list"><div class="box-item"><p>[Add private gallery link here]</p></div></div></div>
         <div class="section"><h3>Photo Reminder</h3><div class="box-list"><div class="box-item"><p>Photos are shared only through the agreed workshop delivery route</p></div><div class="box-item"><p>If you opted out of photos, contact Julian if anything appears by mistake</p></div></div></div>
@@ -725,7 +761,7 @@
   <section id="certificate" class="page">
     <article class="phone-card">
       <div class="ember-glow"></div><div class="content">
-        <a class="kicker" href="#hub" aria-label="Back to Resources">🔥 Fire Breathing Workshop</a>
+        <a class="logo-link" href="#hub" aria-label="Back to Resources"><img class="brand-logo" src="jinn-logo.png" alt="Jinn Fire &amp; Flow"><span class="sr-only">Back to Resources</span></a>
         <div class="print-certificate">
           <p class="mini-label">Certificate Of Completion</p>
           <h1>Fire Breathing Workshop</h1>
